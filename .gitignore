@@ -206,3 +206,4 @@ Temporary Items
 *~
 .merge_file*
 hs_err_pid*
+/.apt_generated/
