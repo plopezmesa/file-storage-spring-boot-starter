@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import es.arcasi.boot.filestorage.web.rest.FileUploadController;
 import es.arcasi.filestorage.services.FileStorageService;
 import es.arcasi.filestorage.services.impl.DiskFileStorageServiceImpl;
 import es.arcasi.filestorage.services.impl.DummyFileStorageServiceImpl;
@@ -15,6 +17,7 @@ import es.arcasi.filestorage.services.impl.DummyFileStorageServiceImpl;
 @Configuration
 @ConditionalOnMissingBean(FileStorageService.class)
 @EnableConfigurationProperties(FileStorageProperties.class)
+@ComponentScan(basePackageClasses=FileUploadController.class)
 public class FileStorageAutoConfiguration {
 
   @Autowired

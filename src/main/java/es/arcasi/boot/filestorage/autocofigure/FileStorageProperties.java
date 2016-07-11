@@ -12,19 +12,27 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = FileStorageProperties.PREFIX)
 public class FileStorageProperties {
-  
-  public static final String PREFIX = "alabamaspinoff.filestorage";
-  
+
+  public static final String PREFIX = "arcasi.filestorage";
+
+  public static final String ENDPOINT_URL = "/filestorage";
+
   /**
    * Type of the ServiceBean using for file storage
    */
   @NotNull
   private FileStorageServiceType serviceType = FileStorageServiceType.DUMMY;
-  
+
   /**
    * Local path where files will be stored
    */
   private String basePath;
+
+  /**
+   * RequestMapping URL for FileUpload Controller
+   */
+  @NotNull
+  private String endpointUrl = ENDPOINT_URL;
 
   public FileStorageServiceType getServiceType() {
     return serviceType;
@@ -42,4 +50,11 @@ public class FileStorageProperties {
     this.basePath = basePath;
   }
 
+  public String getEndpointUrl() {
+    return endpointUrl;
+  }
+
+  public void setEndpointUrl(String endpointUrl) {
+    this.endpointUrl = endpointUrl;
+  }
 }
