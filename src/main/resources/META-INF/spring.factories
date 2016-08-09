@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=es.arcasi.boot.filestorage.autocofigure.FileStorageAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+es.arcasi.oss.boot.filestorage.autocofigure.FileStorageAutoConfiguration,\
+es.arcasi.oss.boot.filestorage.autocofigure.FileStorageEndpointAutoConfiguration

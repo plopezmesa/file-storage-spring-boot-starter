@@ -1,32 +1,36 @@
-package es.arcasi.boot.filestorage.web.rest;
+package es.arcasi.oss.boot.filestorage.web.rest;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import es.arcasi.filestorage.model.FileStorageItem;
-import es.arcasi.filestorage.model.UploadResponse;
-import es.arcasi.filestorage.services.FileStorageService;
+import es.arcasi.oss.boot.filestorage.model.dto.UploadResponse;
+import es.arcasi.oss.filestorage.model.FileStorageItem;
+import es.arcasi.oss.filestorage.services.FileStorageService;
 
-@Controller
-@RequestMapping(value = "${arcasi.filestorage.endpointUrl:/filestorage}")
-public class FileUploadController {
 
-  @Autowired
-  FileStorageService fileStorageService;
+@RestController
+@RequestMapping(value = "${arcasi.filestorage.endpoint-url:/filestorage}")
+public class FileStorageController {
+  
+
+  private FileStorageService fileStorageService;
+
+  public FileStorageController(FileStorageService fileStorageService) {
+    this.fileStorageService = fileStorageService;
+  }
 
   @ResponseStatus(HttpStatus.CREATED)
   @RequestMapping(value = "/", method = RequestMethod.POST)

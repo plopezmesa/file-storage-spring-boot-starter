@@ -1,4 +1,4 @@
-package es.arcasi.boot.filestorage.autocofigure;
+package es.arcasi.oss.boot.filestorage.autocofigure;
 
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +15,7 @@ public class FileStorageProperties {
 
   public static final String PREFIX = "arcasi.filestorage";
 
-  public static final String ENDPOINT_URL = "/filestorage";
+  public static final String ENDPOINT_URL = null;
 
   /**
    * Type of the ServiceBean using for file storage
@@ -29,9 +29,13 @@ public class FileStorageProperties {
   private String basePath;
 
   /**
+   * TimeToLive for Memory File Storage
+   */
+  private Long ttl;
+
+  /**
    * RequestMapping URL for FileUpload Controller
    */
-  @NotNull
   private String endpointUrl = ENDPOINT_URL;
 
   public FileStorageServiceType getServiceType() {
@@ -56,5 +60,13 @@ public class FileStorageProperties {
 
   public void setEndpointUrl(String endpointUrl) {
     this.endpointUrl = endpointUrl;
+  }
+
+  public Long getTtl() {
+    return ttl;
+  }
+
+  public void setTtl(Long ttl) {
+    this.ttl = ttl;
   }
 }
