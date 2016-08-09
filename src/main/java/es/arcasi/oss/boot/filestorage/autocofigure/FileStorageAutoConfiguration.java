@@ -12,9 +12,7 @@ import es.arcasi.oss.filestorage.services.FileStorageService;
 import es.arcasi.oss.filestorage.services.impl.DiskFileStorageServiceImpl;
 import es.arcasi.oss.filestorage.services.impl.MemoryFileStorageServiceImpl;
 
-
 @Configuration
-//@ConditionalOnMissingBean(FileStorageService.class)
 @EnableConfigurationProperties(FileStorageProperties.class)
 public class FileStorageAutoConfiguration {
 
