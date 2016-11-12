@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import es.arcasi.oss.boot.filestorage.model.dto.UploadResponse;
@@ -24,7 +23,6 @@ import es.arcasi.oss.filestorage.model.FileMetadata;
 import es.arcasi.oss.filestorage.model.FileStorageItem;
 import es.arcasi.oss.filestorage.services.FileStorageService;
 
-@RestController
 @RequestMapping(value = "${arcasi.filestorage.endpoint-url:/filestorage}")
 public class FileStorageController {
 
@@ -60,7 +58,7 @@ public class FileStorageController {
   }
 
   @ResponseStatus(HttpStatus.OK)
-  @RequestMapping(value = "/{fileId}/stream", method = RequestMethod.GET) 
+  @RequestMapping(value = "/{fileId}/stream", method = RequestMethod.GET)
   public void download(@PathVariable("fileId") String fileId, HttpServletResponse response) throws IOException {
     FileStorageItem fileStorageItem = fileStorageService.get(fileId);
 
@@ -68,14 +66,14 @@ public class FileStorageController {
     if (fileStorageItem.getFileMetadata() != null && fileStorageItem.getFileMetadata().getMimeType() != null) {
       contentType = fileStorageItem.getFileMetadata().getMimeType();
     }
-    
+
     // Copy the stream to the response's output stream.
     response.setContentType(contentType);
     response.setContentLength(fileStorageItem.getFile().length);
     IOUtils.write(fileStorageItem.getFile(), response.getOutputStream());
     response.flushBuffer();
   }
-  
+
   @ResponseStatus(HttpStatus.NO_CONTENT)
   @RequestMapping(value = "/{fileId}", method = RequestMethod.DELETE)
   public void delete(@PathVariable("fileId") String fileId) throws IOException {
