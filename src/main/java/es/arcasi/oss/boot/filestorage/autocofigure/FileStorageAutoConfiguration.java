@@ -31,7 +31,7 @@ public class FileStorageAutoConfiguration {
       }
       return new MemoryFileStorageServiceImpl();
     default:
-      throw new RuntimeException("No FileStorageService implementationfound");
+      throw new RuntimeException("No FileStorageService implementation found");
     }
   }
 
