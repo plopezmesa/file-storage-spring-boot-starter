@@ -10,7 +10,7 @@
 
   <groupId>es.arcasi.oss</groupId>
   <artifactId>file-storage-spring-boot-starter</artifactId>
-  <version>0.00.003</version>
+  <version>0.00.004-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>File Storage Spring Boot Starter</name>
@@ -47,7 +47,7 @@
     <connection>scm:git:git@github.com:plopezmesa/file-storage-spring-boot-starter.git</connection>
     <developerConnection>scm:git:git@github.com:plopezmesa/file-storage-spring-boot-starter.git</developerConnection>
     <url>http://github.com/plopezmesa/file-storage-spring-boot-starter/tree/master</url>
-    <tag>0.00.003</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
